@@ -1,0 +1,22 @@
+.summary-category {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5em;
+  padding: 0.8em 1em;
+  border-radius: 8px;
+  font-weight: 600;
+
+  .category-details {
+    display: flex;
+    gap: 0.4em;
+  }
+
+  .category-score {
+    color: #303b59;
+
+    .max-score {
+      color: #303b5998;
+    }
+  }
+}
