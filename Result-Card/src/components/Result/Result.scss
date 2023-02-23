@@ -1,16 +1,32 @@
+//Colors
+$baseFontColor: white;
+$shadowColor: #88888876;
+$resultBackgroundColor: linear-gradient(#6743fe, #312cea);
+$scoreBackgroundColor: linear-gradient(#00000044, #00000005);
+$maxScoreColor: #bfb6fbb4;
+$resultTitleColor: #bfb6fb;
+$scoreDescriptionColor: #bfb6fb;
+$submitBaseBackgroundColor: #303b59;
+$SummaryTitleColor: #303b59;
+$submitHoverBackgroundColor: linear-gradient(#6743fe, #312cea);
+
+//Font Weight
+$mediumFont: 600;
+$heavyFont: 700;
+
 .container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
-  box-shadow: 0px 0px 12px #88888876;
+  box-shadow: 0px 0px 12px $shadowColor;
   border-radius: 30px;
 
   .result-title,
   .summary-title {
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: $mediumFont;
   }
 
   .result {
@@ -18,17 +34,17 @@
     text-align: center;
     border-radius: 30px;
     padding: 0.5em 3em 1.8em 3em;
-    background: linear-gradient(#6743fe, #312cea);
+    background: $resultBackgroundColor;
     display: flex;
     flex-direction: column;
     align-items: center;
 
     .result-title {
-      color: #bfb6fb;
+      color: $resultTitleColor;
     }
 
     .score {
-      background: linear-gradient(#00000044, #00000005);
+      background: $scoreBackgroundColor;
       width: 140px;
       height: 140px;
       border-radius: 50%;
@@ -37,29 +53,29 @@
       justify-content: center;
 
       .score-value {
-        color: white;
-        font-weight: 700;
+        color: $baseFontColor;
+        font-weight: $heavyFont;
         font-size: 3rem;
       }
 
       .max-score {
         font-size: 0.8rem;
-        font-weight: 600;
-        color: #bfb6fbb4;
+        font-weight: $mediumFont;
+        color: $maxScoreColor;
       }
     }
 
     .score-evaluation {
-      color: white;
+      color: $baseFontColor;
       font-size: 1.6rem;
-      font-weight: 600;
+      font-weight: $mediumFont;
       margin-bottom: 0;
     }
 
     .score-description {
       font-size: 0.75rem;
-      font-weight: 600;
-      color: #bfb6fb;
+      font-weight: $mediumFont;
+      color: $scoreDescriptionColor;
     }
   }
 
@@ -71,23 +87,24 @@
     justify-content: space-between;
     width: 275px;
 
-    .simmary-title {
-      color: #303b59;
+    .summary-title {
+      color: $SummaryTitleColor;
     }
 
     .submit {
+      font-weight: $heavyFont;
       text-decoration: none;
       border: none;
       width: 100%;
       border-radius: 25px;
       padding: 1em 2em;
-      color: white;
-      background-color: #303b59;
+      color: $baseFontColor;
+      background-color: $submitBaseBackgroundColor;
     }
 
     .submit:hover {
       cursor: pointer;
-      background: linear-gradient(#6743fe, #312cea);
+      background: $submitHoverBackgroundColor;
     }
   }
 }
