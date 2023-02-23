@@ -1,6 +1,6 @@
-//Colors
+// Colors
 $baseFontColor: white;
-$shadowColor: #88888876;
+$boxShadowColor: #88888876;
 $resultBackgroundColor: linear-gradient(#6743fe, #312cea);
 $scoreBackgroundColor: linear-gradient(#00000044, #00000005);
 $maxScoreColor: #bfb6fbb4;
@@ -10,17 +10,31 @@ $submitBaseBackgroundColor: #303b59;
 $SummaryTitleColor: #303b59;
 $submitHoverBackgroundColor: linear-gradient(#6743fe, #312cea);
 
-//Font Weight
+// Font Weight
 $mediumFont: 600;
 $heavyFont: 700;
 
-.container {
+// Centers the element horizontally and vertically using absolute positioning
+@mixin absoluteCenter() {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+// Centers the element horizontally and vertically using Flexbox
+@mixin flexFullCenter($direction) {
   display: flex;
-  box-shadow: 0px 0px 12px $shadowColor;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $direction;
+}
+
+.container {
+  @include absoluteCenter();
+
+  display: flex;
+  box-shadow: 0px 0px 12px $boxShadowColor;
   border-radius: 30px;
 
   .result-title,
@@ -44,13 +58,12 @@ $heavyFont: 700;
     }
 
     .score {
+      @include flexFullCenter($direction: column);
+
       background: $scoreBackgroundColor;
       width: 140px;
       height: 140px;
       border-radius: 50%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
 
       .score-value {
         color: $baseFontColor;
@@ -109,6 +122,7 @@ $heavyFont: 700;
   }
 }
 
+//Mobile design
 @media (max-width: 545px) {
   .container {
     flex-direction: column;
@@ -133,3 +147,10 @@ $heavyFont: 700;
     }
   }
 }
+
+//Fixes overflow on top caused by absolute centering
+@media (max-height: 360px) {
+  .container {
+    top: 180px;
+  }
+} ;
